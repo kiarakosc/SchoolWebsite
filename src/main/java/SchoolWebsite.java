@@ -39,7 +39,7 @@ public class SchoolWebsite {
     }
 
 
-    //pridat assert
+
     @Test
     void logInAis() {
         page.locator("a[href='https://ais2.upjs.sk/ais/start.do']").click();
@@ -57,8 +57,22 @@ public class SchoolWebsite {
         page.fill("input[name='search']", "pero");
         page.locator("button.btn.btn-default.btn-lg").click();
 
+        //page.locator("xpath=//div[contains(., 'Guľôčkové pero s názvom univerzity')]").click();
+        page.locator("xpath=//div[contains(@class, 'row')]//div[contains(@class, 'product-layout')][1]//div[contains(@class, 'image')]/a").click();
+        page.locator("#button-cart").click();
+        page.locator("#cart-total").click();
+        page.locator("a:has-text('Pokladňa')").click();
 
-         page.waitForTimeout(10000);
+        page.locator("label:has-text('Nákup bez registrácie') input[type='radio']").click();
+        page.locator("input[value='Pokračovať']").first().click();
+
+
+
+
+
+
+
+        page.waitForTimeout(100000);
 
     }
 
@@ -80,6 +94,7 @@ public class SchoolWebsite {
 
     }
 
+    //vybrat prvy objekt
     @Test
     void findingMail() {
         page.locator("#search-query-input").click();
@@ -87,18 +102,10 @@ public class SchoolWebsite {
         page.fill("#search-query-input", "Juraj Sebej");
         page.locator("#search-query-submit").click();
 
-        Locator container = page.locator("div.overflow-hidden");
-        Locator trElements = container.locator("tr");
-        List<String> trTexts = trElements.allTextContents();
-        System.out.println(trTexts.size());
-//        for (ElementHandle row : rows) {
-//
-//            ElementHandle emailCell = row.querySelector("td:nth-child(2)");
-//
-//
-//            String email = emailCell.textContent();
-//            System.out.println(email);
-//        }
+        page.locator("xpath=//table[@class='min-w-full']//tr[1]/td[2]").click();
+
+
+
 
         page.waitForTimeout(10000);
     }
