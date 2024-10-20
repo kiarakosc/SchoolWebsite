@@ -1,14 +1,11 @@
 package org.example;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.*;
+
 
 // Represents the login page and the operations that can be performed on it
 public class LoginPage {
-
-    // Playwright Page object used to interact with the web page
-    private Page page;
-
     //Why page needs to be private? encapsulation
+    private Page page;
 
     //Locators for elements
 
@@ -25,10 +22,10 @@ public class LoginPage {
     public LoginPage(Page page) {
         this.page = page;
 
-        Ais2Button = page.locator("a[href='https://ais2.upjs.sk/ais/start.do']");
-        submitButton = page.locator("#login-form-submit-btn");
-        loginInputSelectorName = page.locator("#login");
-        loginInputSelectorPassword = page.locator("#heslo");
+        Ais2Button = this.page.locator("a[href='https://ais2.upjs.sk/ais/start.do']");
+        submitButton = this.page.locator("#login-form-submit-btn");
+        loginInputSelectorName = this.page.locator("#login");
+        loginInputSelectorPassword = this.page.locator("#heslo");
     }
 
 
@@ -52,11 +49,6 @@ public class LoginPage {
         enterUsername(username);
         enterPassword(password);
         clickSubmitButton();
-    }
-
-    // Checks if the login was successful by verifying the URL of the current page
-    public boolean isLoginSuccessful() {
-        return page.url().contains("/ais/apps/student/sk/");
     }
 
 }

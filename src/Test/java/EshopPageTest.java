@@ -1,17 +1,16 @@
 import com.microsoft.playwright.*;
-import org.example.LoginPage;
+import org.example.EshopPage;
 import org.junit.jupiter.api.*;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-
-public class LoginPageTest {
+public class EshopPageTest {
 
     static Playwright playwright;
     public static Browser browser;
 
     BrowserContext context;
-    protected Page page;
+    protected  Page page;
 
     @BeforeAll
     static void launchBrowser() {
@@ -37,21 +36,18 @@ public class LoginPageTest {
     }
 
     //Assert was added.
-    // Checks if the login was successful by verifying the URL of the current page
-    public void isLoginSuccessful() {
-        assertThat(page).hasURL("https://ais2.upjs.sk/ais/apps/student/sk/");
-
+    public void isOrderSuccessful() {
+        assertThat(page).hasURL("https://eshop.upjs.sk/index.php?route=checkout/success");
     }
 
+
     @Test
-    void logInAisWithRightCredentials() {
-        // Create instance of LoginPage and perform login actions
-        LoginPage loginPage = new LoginPage(page);
+    void orderingItemFromEshop(){
+        EshopPage eshopPage = new EshopPage(page);
 
-
-        loginPage.navigateToLoginPage();
-        loginPage.login("5393452", "UpJs2524#*");
-        isLoginSuccessful();
-
+        eshopPage.searchItem("pero");
+        eshopPage.addItemToCart();
+        eshopPage.fillOrderInformation("Kiara", "Kosc", "kiara.kosc@gmail.com","0944194343",  "Moyzesova 56","Kosice", "04001", "2927");
+        isOrderSuccessful();
     }
 }

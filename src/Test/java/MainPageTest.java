@@ -1,11 +1,10 @@
 import com.microsoft.playwright.*;
-import org.example.LoginPage;
+import org.example.MainPage;
 import org.junit.jupiter.api.*;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 
-public class LoginPageTest {
+public class MainPageTest {
 
     static Playwright playwright;
     public static Browser browser;
@@ -37,21 +36,23 @@ public class LoginPageTest {
     }
 
     //Assert was added.
-    // Checks if the login was successful by verifying the URL of the current page
-    public void isLoginSuccessful() {
-        assertThat(page).hasURL("https://ais2.upjs.sk/ais/apps/student/sk/");
+    public void calendarIsSuccessfullyFound() {
+        MainPage mainpage = new MainPage(page);
 
+        // This will call the navigation method and save the instance of the new tab to this parameter.
+        // It is of type Page because assertThat expects only Page, Locator, or APIResponse.
+        Page newPage = mainpage.clickOpenHarmonogramButton();
+        assertThat(newPage).hasURL("https://intranet.upjs.sk/op/op.Public.php?documentid=9351");
     }
 
     @Test
-    void logInAisWithRightCredentials() {
-        // Create instance of LoginPage and perform login actions
-        LoginPage loginPage = new LoginPage(page);
+    void findCurrentCalendarForSchoolYear(){
+        MainPage mainpage = new MainPage(page);
 
-
-        loginPage.navigateToLoginPage();
-        loginPage.login("5393452", "UpJs2524#*");
-        isLoginSuccessful();
+        mainpage.findCalendar();
+        calendarIsSuccessfullyFound();
 
     }
+
+
 }
