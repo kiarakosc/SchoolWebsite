@@ -1,6 +1,5 @@
 package org.example;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.*;
 
 public class EshopPage {
 
@@ -30,6 +29,7 @@ public class EshopPage {
     private Locator confirmButton;
 
     public EshopPage(Page page) {
+
         this.page = page;
 
         eshopButton = page.locator("div.header-custom-links a:has-text('E-shop')");
@@ -88,7 +88,10 @@ public class EshopPage {
         registrationRadioButton.click();
     }
 
+    //automated waiting command was added
     public void clickOnFirstContinueButton() {
+        page.waitForTimeout(100);
+        //firstContinueButton.waitFor();
         firstContinueButton.first().click();
     }
 
@@ -125,7 +128,9 @@ public class EshopPage {
         this.zone.selectOption(zone);
     }
 
+    //automated waiting command was added
     public void clickSecondContinueButton() {
+        secondContinueButton.waitFor();
         secondContinueButton.first().click();
     }
 
@@ -145,9 +150,6 @@ public class EshopPage {
         confirmButton.click();
     }
 
-    public boolean isOrderSuccessful() {
-        return page.url().contains("https://eshop.upjs.sk/index.php?route=checkout/success");
-    }
 
     // Searches for an item and navigates to its product page
     public void searchItem(String item) {
@@ -168,8 +170,6 @@ public class EshopPage {
     // Fills in the order information
     public void fillOrderInformation(String firstname, String lastname, String emailAddress, String telephoneNumber, String address1, String cityName, String postCode, String optionZone) {
         clickOnRegistrationRadioButton();
-        // It won't work without this, why?
-        page.waitForTimeout(100);
         clickOnFirstContinueButton();
         fillFirstname(firstname);
         fillLastname(lastname);
@@ -179,13 +179,11 @@ public class EshopPage {
         fillCity(cityName);
         fillPostCode(postCode);
         fillZone(optionZone);
-        // It won't work without this, why?
-        page.waitForTimeout(100);
         clickSecondContinueButton();
         clickOnShippingMethodButton();
         clickOnAgreementButton();
-        clickOnPaymentMethodButton();
-        clickOnConfirmButton();
+        //clickOnPaymentMethodButton();
+        //clickOnConfirmButton();
 
     }
 

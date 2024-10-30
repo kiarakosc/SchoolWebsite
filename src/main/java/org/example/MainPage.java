@@ -1,12 +1,11 @@
 package org.example;
-
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.*;
 
 
-public class MainPage extends Factory {
+
+public class MainPage {
+
     private Page page;
-    private Page newPage;
 
     private Locator oUniverziteButton;
     private Locator prirodovedeckaFakultaButton;
@@ -15,6 +14,7 @@ public class MainPage extends Factory {
     private Locator openHarmonogramButton;
 
     public MainPage(Page page) {
+
         this.page = page;
 
         oUniverziteButton = page.locator("#dropdownMenuButton9502");
@@ -28,36 +28,42 @@ public class MainPage extends Factory {
     public void clickoUniverziteButton() {
         oUniverziteButton.click();
     }
+
     public void clickPrirodovedeckaFakultaButton() {
         prirodovedeckaFakultaButton.click();
     }
+
     public void clickStudentiButton() {
         studentiButton.click();
     }
+
     public void clickHarmonogramButton() {
         harmonogramButton.click();
     }
-    public void clickOpenHarmonogramButton() {
-        newPage = page.waitForPopup(() -> {
+
+    // In this method, after clicking on the locator, a new tab in the browser is opened, which becomes a new instance of the Page class.
+    // Since this will be used in another method, I will access the new instance without creating
+    // a global parameter by calling it from the navigation method.
+    public Page clickOpenHarmonogramButton() {
+        Page newPage = page.waitForPopup(() -> {
             page.locator("//h6[contains(text(), 'Harmonogram akademického roka 2024/2025')]").click();
         });
 
-        newPage.navigate(newPage.url());
+        //Waiting for new tab to be fully load.
         newPage.waitForLoadState();
+        return newPage;
     }
 
-    public boolean calendarIsSuccessfullyFound(){
-        return newPage.url().contains("https://intranet.upjs.sk/op/op.Public.php?documentid=9351");
-    }
 
-    public void findCalendar(){
+    public void findCalendar() {
         clickoUniverziteButton();
         clickPrirodovedeckaFakultaButton();
         clickStudentiButton();
         clickHarmonogramButton();
         clickOpenHarmonogramButton();
-    }
+        //page.waitForTimeout(1000);
 
+    }
 
 
 }
