@@ -13,7 +13,7 @@ I chose IntelliJ IDEA for running code.
 ## Setting Up IntelliJ IDEA and Running the Code (Maven Project)
 
 ### 1. Download and Install IntelliJ IDEA
-Visit the official JetBrains website: https://www.jetbrains.com/idea/.__ 
+Visit the official JetBrains website: https://www.jetbrains.com/idea/._ _
 Choose the version:
     * Community Edition (Free): Suitable for most Java and Maven projects.
     * Ultimate Edition (Paid): Includes additional features for web development and enterprise frameworks.
