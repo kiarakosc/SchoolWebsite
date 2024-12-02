@@ -17,6 +17,7 @@ Visit the official JetBrains website: https://www.jetbrains.com/idea/. <br />
 Choose the version: <br />
  * Community Edition (Free): Suitable for most Java and Maven projects.<br />
  * Ultimate Edition (Paid): Includes additional features for web development and enterprise frameworks.<br />
+ 
 Download the installer for your operating system (Windows, macOS, or Linux).<br />
 Run the installer and follow the on-screen instructions to complete the installation.<br />
     
@@ -29,8 +30,8 @@ Click Clone. IntelliJ will download the project files to your local machine.<br 
 ### 3. Open the Maven Project in IntelliJ IDEA
 After cloning, IntelliJ will automatically open the project.<br />
 Verify that IntelliJ recognizes the pom.xml file. If not:<br />
-     *  Navigate to the pom.xml file in the project view.<br />
-     *  Right-click on it and select Add as Maven Project.<br />
+ *  Navigate to the pom.xml file in the project view.<br />
+ *  Right-click on it and select Add as Maven Project.<br />
    
 ### 4. Run the Code
 Locate the main class or test class you wish to run in the Project view.<br />
