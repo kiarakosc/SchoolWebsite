@@ -43,26 +43,26 @@ Alternatively, set up a new run configuration via the Run menu if required.<br /
 ## Project Structure
 Page Classes:
 ```
-SchoolWebsite/                    # Root directory of the project\
-│\
-├── src                           # Source code directory
-│   └── main/java/org/example/    # Main Java package 
-│       ├── LoginPage.java        # LoginPage.java, EshopPage.java, MainPage.java: 
-│       ├── EshopPage.java          Page Object Model (POM) classes that represent different 
-│       └── MainPage.java           pages of the website and their associated actions
-│               
-│               
-│
-├── Test/                         # Test directory
-│   └── java/                     # Test code package
-│       ├── LoginPageTest.java    # Test cases for Login page
-│       ├── EshopPageTest.java    # Test cases for E-shop page
-│       └── MainPageTest.java     # Test cases for Main page
-│
-├── resources/                    # Resources used in the project
-│
-├── pom.xml                       # Maven configuration file for dependencies
-└── .gitignore                    # Git ignore file
+SchoolWebsite/                # Root directory of the project
+├── .idea/                    
+├── src/                      # Source code directory
+│   ├── main/java/org/example/    
+│   │   ├── EshopPage.java        # LoginPage.java, EshopPage.java, MainPage.java:
+│   │   ├── LoginPage.java          Page Object Model (POM) classes that represent different
+│   │   ├── MainPage.java           pages of the website and their associated actions
+│   ├── resources/            # Resources used in the project
+│   ├── Test/                 # UI Test directory
+│   │   ├── java/           
+│   │       ├── EshopPageTest.java  # Test cases for E-shop page
+│   │       ├── LoginPageTest.java  # Test cases for Login page
+│   │       ├── MainPageTest.java   # Test cases for Main page
+│   ├── APITest/              # API Test directory
+│       ├── java/             
+│           ├── Test01.java       # API testing class
+├── target/                   # Compiled classes and resource
+├── .gitignore                # Git ignore file
+├── pom.xml                   # Maven configuration file for dependencies
+
 ```  
 
 ## How to Run the Tests
