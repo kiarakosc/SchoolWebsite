@@ -14,11 +14,11 @@ I chose IntelliJ IDEA for running code.
 
 ### 1. Download and Install IntelliJ IDEA
 Visit the official JetBrains website: https://www.jetbrains.com/idea/. <br />
-Choose the version:
-    * Community Edition (Free): Suitable for most Java and Maven projects.
-    * Ultimate Edition (Paid): Includes additional features for web development and enterprise frameworks.
-Download the installer for your operating system (Windows, macOS, or Linux).
-Run the installer and follow the on-screen instructions to complete the installation.
+Choose the version: <br />
+    * Community Edition (Free): Suitable for most Java and Maven projects.<br />
+    * Ultimate Edition (Paid): Includes additional features for web development and enterprise frameworks.<br />
+Download the installer for your operating system (Windows, macOS, or Linux).<br />
+Run the installer and follow the on-screen instructions to complete the installation.<br />
     
 ### 2. Clone the Project from GitHub
 Open IntelliJ IDEA and navigate to File > New > Project from Version Control.
