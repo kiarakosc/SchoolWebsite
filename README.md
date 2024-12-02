@@ -15,27 +15,27 @@ I chose IntelliJ IDEA for running code.
 ### 1. Download and Install IntelliJ IDEA
 Visit the official JetBrains website: https://www.jetbrains.com/idea/. <br />
 Choose the version: <br />
-    * Community Edition (Free): Suitable for most Java and Maven projects.<br />
-    * Ultimate Edition (Paid): Includes additional features for web development and enterprise frameworks.<br />
+ * Community Edition (Free): Suitable for most Java and Maven projects.<br />
+ * Ultimate Edition (Paid): Includes additional features for web development and enterprise frameworks.<br />
 Download the installer for your operating system (Windows, macOS, or Linux).<br />
 Run the installer and follow the on-screen instructions to complete the installation.<br />
     
 ### 2. Clone the Project from GitHub
-Open IntelliJ IDEA and navigate to File > New > Project from Version Control.
-Select Git.
-Enter GitHub repository URL (https://github.com/kiarakosc/SchoolWebsite.git) and choose a destination folder.
-Click Clone. IntelliJ will download the project files to your local machine.
+Open IntelliJ IDEA and navigate to File > New > Project from Version Control.<br />
+Select Git.<br />
+Enter GitHub repository URL (https://github.com/kiarakosc/SchoolWebsite.git) and choose a destination folder.<br />
+Click Clone. IntelliJ will download the project files to your local machine.<br />
     
 ### 3. Open the Maven Project in IntelliJ IDEA
-After cloning, IntelliJ will automatically open the project.
-Verify that IntelliJ recognizes the pom.xml file. If not:
-     *  Navigate to the pom.xml file in the project view.
-     *  Right-click on it and select Add as Maven Project.
+After cloning, IntelliJ will automatically open the project.<br />
+Verify that IntelliJ recognizes the pom.xml file. If not:<br />
+     *  Navigate to the pom.xml file in the project view.<br />
+     *  Right-click on it and select Add as Maven Project.<br />
    
 ### 4. Run the Code
-Locate the main class or test class you wish to run in the Project view.
-Right-click the class file and select Run 'ClassName'.
-Alternatively, set up a new run configuration via the Run menu if required.
+Locate the main class or test class you wish to run in the Project view.<br />
+Right-click the class file and select Run 'ClassName'.<br />
+Alternatively, set up a new run configuration via the Run menu if required.<br />
     
 
   
