@@ -65,51 +65,5 @@ SchoolWebsite/                # Root directory of the project
 
 ```  
 
-## Required dependencies
-Add these dependencies to your pom.xml file:
-
-    <dependencies>
-        <!-- Playwright Dependency -->
-        <dependency>
-            <groupId>com.microsoft.playwright</groupId>
-            <artifactId>playwright</artifactId>
-            <version>1.47.0</version>
-        </dependency>
-
-        <!-- JUnit Jupiter Dependencies -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.9.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.9.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- Swagger Annotations -->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>1.5.0</version>
-        </dependency>
-    </dependencies>
-
-
+## Project Structure
+In case of any issues with required project dependencies run: ``` mvn clean install -U -X ```
