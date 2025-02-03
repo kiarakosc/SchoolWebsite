@@ -50,7 +50,7 @@ public class LoginPageTest {
 
 
         loginPage.navigateToLoginPage();
-        loginPage.login("5393452", "UpJs2524#*");
+        loginPage.login("-------", "------");
         isLoginSuccessful();
 
     }
