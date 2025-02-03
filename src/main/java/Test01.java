@@ -5,12 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import java.lang.reflect.Array;
-
 
 public class Test01 {
 
@@ -98,16 +94,7 @@ public class Test01 {
     @Test
     public void replaceProduct() {
         // Create a new JSON object to represent the replacement product.
-        JsonObject product = new JsonObject();
-
-        // Add properties to the JSON object.
-        product.addProperty("title", "Mens Casual Slim Fit");
-        product.addProperty("price", 15.99);
-        product.addProperty("description", "hello");
-        product.addProperty("category", "men's clothing");
-        product.addProperty("image", "https://fakestoreapi.com/img/71YXze0UsLL._AC_UY879_.jpg");
-        product.addProperty("rate", 2.1);
-        product.addProperty("count", 430);
+        JsonObject product = getTestProductJson();
 
         // Specify headers to inform the server about the request's content type.
         // The "Content-Type: application/json" header tells the server that the request body is in JSON format.
@@ -121,19 +108,20 @@ public class Test01 {
         // Check the response status code to ensure the replacement was successful.
         Assertions.assertEquals(200, response.status(), "Status code should be 200");
     }
-public void getProduct{
+
+    public void getProduct() {
         // Send a GET request to retrieve details of the chosen product (ID = 6).
         APIResponse response = apiRequest.get("/products/6");
 
         // Check if the response status is 200 (OK) to ensure the product exists and the test can continue.
         Assertions.assertEquals(200, response.status(), "Status code should be 200");
 
-        return product;
+        //return product;
     }
 
     // Test case: Change the title of an existing product.
     @Test
-    public void changingProductTitleForExistingProductReturnSuccess(string product) {
+    public void changingProductTitleForExistingProductReturnSuccess() {
         // Send a GET request to retrieve details of the chosen product (ID = 6).
         APIResponse response = apiRequest.get("/products/6");
 
@@ -158,10 +146,9 @@ public void getProduct{
         product.addProperty("title", "ITEM01");
 
         // Specify headers for the PUT request.
-        RequestOptions requestOptions = RequestOptions.create()
-                .setHeader("Content-Type", "application/json")
-                .setData(product.toString());
-        return requestOptions;
+        return RequestOptions.create()
+                             .setHeader("Content-Type", "application/json")
+                             .setData(product.toString());
     }
 
 
@@ -169,16 +156,7 @@ public void getProduct{
     @Test
     public void addProductWith() {
         // Create a JSON object to represent the new product.
-        JsonObject product = new JsonObject();
-
-        // Insert values for the product's properties.
-        product.addProperty("title", "Mens Casual Slim Fit");
-        product.addProperty("price", -15.99);
-        product.addProperty("description", "");
-        product.addProperty("category", "");
-        product.addProperty("image", "https://fakestoreapi.com/img/71YXze0UsLL._AC_UY879_.jpg");
-        product.addProperty("rate", 2.1);
-        product.addProperty("count", 43000000);
+        JsonObject product = getTestProductJson();
 
         // Specify the headers for the request.
         RequestOptions requestOptions = RequestOptions.create()
@@ -237,7 +215,19 @@ public void getProduct{
         System.out.println(response.status());
     }
 
+    private static JsonObject getTestProductJson() {
+        JsonObject product = new JsonObject();
 
+        // Add properties to the JSON object.
+        product.addProperty("title", "Mens Casual Slim Fit");
+        product.addProperty("price", 15.99);
+        product.addProperty("description", "hello");
+        product.addProperty("category", "men's clothing");
+        product.addProperty("image", "https://fakestoreapi.com/img/71YXze0UsLL._AC_UY879_.jpg");
+        product.addProperty("rate", 2.1);
+        product.addProperty("count", 430);
+        return product;
+    }
 
     @AfterAll
     public static void teardown() {
